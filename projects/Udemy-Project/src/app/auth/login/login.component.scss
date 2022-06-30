@@ -1,0 +1,25 @@
+section {
+    form {
+        margin-top: 5rem;
+
+        .input {
+
+            mat-form-field {
+                width: 20rem;
+            }
+        
+        }
+
+        .password {
+
+            mat-form-field {
+                width: 20rem;
+            }
+        
+        }
+
+        button {
+            margin-top: 0.5rem;
+        }
+    }
+}

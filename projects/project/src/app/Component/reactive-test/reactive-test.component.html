@@ -1,0 +1,32 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+    <div>
+        <label for="Project">Project Name:</label>
+        <input type="text" formControlName="projectname">
+        <span *ngIf="!form.get('projectname')?.valid && 
+        form.get('projectname')?.touched && 
+        form.get('projectname')?.errors">
+            <span *ngIf="form.get('projectname')?.errors!['invalidProjectName']">
+                This name is invalid.
+            </span>
+            <span *ngIf="form.get('projectname')?.errors!['required']">
+                This name is required.
+            </span>
+        </span>
+    </div>
+
+    <div>
+        <label for="Mail">Mail</label>
+        <input type="email" formControlName="mail">
+        <span *ngIf="!form.get('mail')?.valid && form.get('mail')?.touched">This field is required.</span>
+    </div>
+
+    <div>
+        <label for="">Project Status</label>
+        <select name="" id="" formControlName="projectstatus">
+            <option value="stable">Stable</option>
+            <option value="critical">Critical</option>
+            <option value="finish">Finish</option>
+        </select>
+    </div>
+    <button type="submit" (click)="submit()">Submit</button>
+</form>

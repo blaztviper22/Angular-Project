@@ -1,0 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.style {
+    height: 37em;
+    border-radius: 5px;
+}

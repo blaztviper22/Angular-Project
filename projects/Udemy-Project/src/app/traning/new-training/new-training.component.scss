@@ -1,0 +1,15 @@
+section {
+    .card-container {
+        margin-top: 5rem;
+    }
+
+    .card-content {
+        height: 8rem;
+    }
+
+    mat-card-content {
+        mat-form-field {
+            margin-top: 3rem;
+        }
+    }
+}

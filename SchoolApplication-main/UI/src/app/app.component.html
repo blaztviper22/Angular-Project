@@ -1,0 +1,125 @@
+<!-- Toolbar -->
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches" *ngIf="shouldRun">
+  <div class="header">
+    <mat-toolbar color="primary" class="app-header example-toolbar">
+      <mat-icon (click)="toggleMenu()" *ngIf='authService.isLoggedIn$ | async'>menu</mat-icon>
+      <!-- <mat-icon (click)="snav.toggle()" *ngIf='authService.isLoggedIn$ | async'>menu</mat-icon> -->
+      <div><a href="https://www.knowledgehomeitsolutions.com" target="_blank" class="positronx">KnowledgeHome IT
+          Solutions</a></div>
+      <span class="nav-tool-items" *ngIf="!isloggedIN">
+        <a mat-button routerLink="login" routerLinkActive="active">Log in</a>
+        <a mat-button mat-raised-button routerLink="register" routerLinkActive="active">Register</a>
+      </span>
+      <!-- <span *ngIf="isloggedIN">
+        <label>{{userName}}</label>
+        <a mat-button (click)="onLogout()">Logout</a>
+      </span> -->
+      <a href='#' *ngIf='authService.isLoggedIn$ | async' (click)='onLogout()'>Log Out</a>
+      <a href='#' *ngIf='!(authService.isLoggedIn$ | async)' (click)='onLogout()'>Login</a>
+    </mat-toolbar>
+  </div>
+  <div class="main">
+    <!-- <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+      <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
+        fixedTopGap="56">
+        <aside class="left-sidebar">
+          <div class="scroll-sidebar">
+            <nav class="sidebar-nav">
+              <ul id="sidebarnav">
+                <li [ngClass]="{'active': menus[1]}">
+                  <a (click)="navmenuclick(1)" [routerLink]="['/dashboard']" class="has-arrow"
+                    [attr.aria-expanded]="true ? menus[1]:true"><i class="fa fa-dashboard m-r-5"
+                      aria-hidden="true"></i><span class="hide-menu spanClass">Dashboard</span></a>
+                </li>
+                <li [ngClass]="{'active': menus[2]}">
+                  <a (click)="navmenuclick(2)" class="has-arrow" [attr.aria-expanded]="true ? menus[2]:true"><i
+                      class="fa fa-file-text" aria-hidden="true"></i><span class="hide-menu spanClass">Master
+                      List</span></a>
+                  <ul *ngIf=menus[2] class="collapse in">
+                    <li class="child-li"><a [routerLink]="['/students']" class="has-arrow"
+                        [ngClass]="{'active': submenu['2.0']}"><i class="fa fa-users m-r-5"></i>Student List</a></li>
+                    <li class="child-li"><a [routerLink]="['/subjects']" [ngClass]="{'active': submenu['2.1']}"><i
+                          class="fa fa-book m-r-5"></i>Subject
+                        List</a></li>
+                    <li class="child-li"><a [routerLink]="['/curriculums']" [ngClass]="{'active': submenu['2.1']}"><i
+                          class="fa fa-book m-r-5"></i>Curriculum
+                        List</a></li>
+                  </ul>
+                </li>
+                <li [ngClass]="{'active': menus[3]}">
+                  <a [routerLink]="['/grades']" (click)="navmenuclick(3)" class="has-arrow"
+                    [attr.aria-expanded]="true ? menus[3]:true"><i class="fa fa-graduation-cap"
+                      aria-hidden="true"></i><span class="hide-menu spanClass">Grades</span></a>
+
+                </li>
+
+              </ul>
+            </nav>
+          </div>
+        </aside>
+      </mat-sidenav>
+
+      <mat-sidenav-content>
+        <router-outlet></router-outlet>
+
+      </mat-sidenav-content>
+    </mat-sidenav-container> -->
+
+
+    <mat-sidenav-container>
+      <mat-sidenav #menuSidenav #sidenav="matSidenav" class="mat-elevation-z8" *ngIf='authService.isLoggedIn$ | async'>
+        <img class="avatar mat-elevation-z8" src="../assets/Virat_Kohli.jpg" />
+
+        <h4 class="name">Virat Kohli</h4>
+        <p class="designation">BAMS</p>
+
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button" [routerLink]="['/dashboard']">
+          <mat-icon>home</mat-icon>
+          <span>Dashboard</span>
+        </button>
+        <button mat-button class="menu-button">
+          <mat-icon>person</mat-icon>
+          <span>Profile</span>
+        </button>
+        <button mat-button class="menu-button" [routerLink]="['/students']">
+          <mat-icon>supervisor_account</mat-icon>
+          <span>Student List</span>
+        </button>
+        <button mat-button class="menu-button" [routerLink]="['/subjects']">
+          <mat-icon>assignment</mat-icon>
+          <span>Subject List</span>
+        </button>
+        <button mat-button class="menu-button" [routerLink]="['/curriculums']">
+          <mat-icon>view_list</mat-icon>
+          <span>Curriculum List</span>
+        </button>
+        <!-- <button mat-button class="menu-button">
+          <mat-icon>info</mat-icon>
+          <span>About</span>
+        </button> -->
+        <button mat-button class="menu-button" [routerLink]="['/grades']">
+          <mat-icon>grading</mat-icon>
+          <span>Grades</span>
+        </button>
+
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button">
+          <mat-icon>help</mat-icon>
+          <span>Help</span>
+        </button>
+
+      </mat-sidenav>
+
+      <mat-sidenav-content>
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+  <div class="footer footer-css col-md-12 text-center">
+    <p>Made BY <i class="fa fa-heart margin-css"></i> <a href="https://knowledgehomeitsolutions.com/">KnowledgeHome IT
+        Solutions</a></p>
+  </div>
+</div>

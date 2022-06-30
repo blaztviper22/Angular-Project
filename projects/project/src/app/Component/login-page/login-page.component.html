@@ -1,0 +1,41 @@
+<form (ngSubmit)="onSubmit()" #f="ngForm">
+    <div ngModelGroup="userData" userData="ngModelGroup" #userData="ngModelGroup">
+        <div>
+           <label for="email">Email</label>
+           <input type="text" ngModel name="email" required email #email="ngModel">
+           <span *ngIf="!email.valid && email.touched">Please enter invalid email</span>
+        </div>
+        <button type="button" (click)="suggestUserName()">suggest a username</button>
+        <div>
+           <label for="password">Password</label>
+           <input type="password" ngModel name="password">
+        </div>
+    </div>
+        <p *ngIf="!userData.valid && userData.touched">User data is invalid</p>
+    <div>
+        <label for="secret">Secret question</label>
+        <select name="secret" id="secret" [ngModel]="defaultQuestion">
+            <option value="pet">Your first pet?</option>
+            <option value="teacher">Your first teacher?</option>
+        </select>
+    </div>
+        <div class="radio" *ngFor="let gender of genders">
+            <label for=""><input type="radio" name="gender" ngModel [value]="gender" required>{{ gender }}</label>
+        </div>
+        <div>
+           <textarea name="questionAnswer" rows="3" [(ngModel)]="answer"></textarea>
+        </div>
+           <p>Your reply: {{ answer }}</p>
+        <button type="submit" [disabled]="!f.valid">Login</button>
+</form>
+<hr>
+<div class="row" *ngIf="submitted">
+    <div class="col-xs-12">
+        <h2>Your data</h2>
+        <p>Email: {{ user.email }}</p>
+        <p>Password: {{ user.password }}</p>
+        <p>Secret question: Your first {{ user.secretQuestion }}</p>
+        <p>Gender: {{ user.gender }}</p>
+        <p>Answer: {{ user.Answer }}</p>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+<mat-nav-list>
+    <mat-card>
+        <mat-card-header>
+            <div mat-card-avatar class="avatar"></div>
+        </mat-card-header>
+        <mat-card-title>Admin Dashboard</mat-card-title>
+        <mat-card-subtitle>Admin</mat-card-subtitle>
+    </mat-card>
+    <a *ngFor="let item of routes" mat-list-item [routerLink]="['/', item.path]" [routerLinkActive]="'active-link'">
+        <mat-icon color="primary" class="sidenav-icon">{{item.data.icon}}</mat-icon>
+        <span>{{item.data.text}}</span>
+    </a>
+</mat-nav-list>

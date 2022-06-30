@@ -1,0 +1,39 @@
+<div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-between stretch" fxLayoutGap.xs="20px">
+    <div class="mb10" fxflex="24" fxflex.lt-lg="49">
+        <app-stat [icon]="'star_oder'" [count]="orders_count" [label]="'Oders'"></app-stat>
+    </div>
+    <div class="mb10" fxflex="24" fxflex.lt-lg="49">
+        <app-stat [icon]="'rate_review'" [count]="reviews_count" [label]="'Reviews'"></app-stat>
+    </div>
+    <div class="mb10" fxflex="24" fxflex.lt-lg="49">
+        <app-stat [icon]="'mouse'" [count]="click_count" [label]="'Clicks'"></app-stat>
+    </div>
+    <div class="mb10" fxflex="24" fxflex.lt-lg="49">
+        <app-stat [icon]="'share'" [count]="shares_count" [label]="'Shares'"></app-stat>
+    </div>
+</div>
+
+<div class="mt-20" fxLayout="row" fxLayoutAlign="space-between stretch" fxLayoutGap fxLayout.lt-md="column" fxLayoutGap="20px">
+    <mat-card fxFlex *ngFor="let item of items">
+        <img mat-card-image [src]="item. imgSrc">
+        <mat-card-header style="justify-content: center;">
+            <mat-card-title>
+                <h3 class="m-0">{{item.name}}</h3>
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            {{item.description}}
+        </mat-card-content>
+        <mat-card-actions>
+            <button color="primary" mat-button>
+                <mat-icon class="action-icon">expand_more</mat-icon>
+            </button>
+            <button color="primary" mat-button>
+                <mat-icon class="action-icon">share</mat-icon>
+            </button>
+            <button color="primary" mat-button>
+                <mat-icon class="action-icon">thumb_up</mat-icon>
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</div>

@@ -1,0 +1,15 @@
+mat-toolbar {
+    ul {
+        list-style-type: none;
+    }
+
+    a {
+        text-decoration: none;
+        color: white;
+        padding: 00.5rem;
+    }
+
+    a:hover, a:active {
+        color: lightgray;
+    }
+}

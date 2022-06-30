@@ -1,0 +1,17 @@
+.logo{
+    width: 50%;
+    height: auto;
+}
+
+.main{   
+   // width: 45%;
+    flex-direction: row;
+    background: white;
+    padding: 15px;
+}
+
+.left{
+    align-self: flex-start;
+    width: 50%;
+    float: left;
+}

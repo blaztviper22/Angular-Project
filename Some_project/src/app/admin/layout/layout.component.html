@@ -1,0 +1,36 @@
+<div class="layout-container font-regular mat-app-background">
+    <app-top-nav (sideNavToggle)="onToolbarMenuToggle()"></app-top-nav>
+
+    <mat-sidenav-container 
+    class="sidenav-container" 
+    [style.margin-top.px]="toolBarHeight" 
+    [hasBackdrop]="false"
+    >
+
+        <mat-sidenav 
+           #snav 
+           position="start"
+           disableClose="true" 
+           role="navigation" 
+           class="sidenav mat-elevation-z10" 
+           mode="side" 
+           [(opened)]="sideNavDefaultOpened"
+           [ngStyle]="{'width.px': isExpanded ? openWidth : closeWidth}"
+        >
+           <app-side-nav *ngIf="showfullMenu; else elseBlock"></app-side-nav>
+           <ng-template #elseBlock>
+               <app-side-nav-closed></app-side-nav-closed>
+           </ng-template>
+        </mat-sidenav>
+
+        <mat-sidenav-content 
+          role="origin" 
+          id="sidenav-content" 
+          [ngStyle]="{'margin-left.px': isExpanded && !isMobile ? openWidth : closeWidth}"
+        > 
+            <main class="main-container">
+                <router-outlet></router-outlet>
+            </main>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

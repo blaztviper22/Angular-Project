@@ -1,0 +1,15 @@
+.example-card {
+    max-width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.card-actions {
+    display: block;
+}
+
+.btn {
+    margin-left: 2rem;
+}
